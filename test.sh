@@ -2,6 +2,8 @@
 set -e
 set -o pipefail
 
+REPO_URL="${REPO_URL:-westonsteimel}"
+
 # this is kind of an expensive check, so let's not do this twice if we
 # are running more than one validate bundlescript
 VALIDATE_REPO='https://github.com/westonsteimel/docker-alpine-glibc.git'
@@ -47,10 +49,10 @@ for f in ${files[@]}; do
 
 	(
 	set -x
-	docker build -t "${base}:${suite}" "${build_dir}"
+	docker build -t "${REPO_URL}/${base}:${suite}" "${build_dir}"
 	)
 
 	echo "                       ---                                   "
-	echo "Successfully built ${base}:${suite} with context ${build_dir}"
+	echo "Successfully built ${REPO_URL}/${base}:${suite} with context ${build_dir}"
 	echo "                       ---                                   "
 done
