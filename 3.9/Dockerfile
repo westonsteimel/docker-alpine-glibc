@@ -1,6 +1,6 @@
 FROM alpine:3.9
 
-ENV ALPINE_GLIBC_PACKAGE_VERSION="2.28-r0"
+ENV ALPINE_GLIBC_PACKAGE_VERSION="2.29-r0"
 ENV LANG=C.UTF-8
 
 # Here we install GNU libc (aka glibc) and set C.UTF-8 locale as default.
